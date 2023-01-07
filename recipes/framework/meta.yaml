@@ -1,0 +1,49 @@
+package:
+  name: versiontest
+  version: {{ '0.0.0' }}
+
+source:
+  path: ../../
+
+build:
+  number: 0
+  run_exports:
+    - {{ pin_subpackage('versiontest', max_pin='x.x.x') }}
+
+requirements:
+  build:
+    - {{ compiler("c") }}
+    - {{ compiler("cxx") }}
+    - llvm-openmp  # [osx]
+    - libgomp  # [linux]
+    - ninja  # [unix]
+    - cmake
+    - git
+    - {{ cdt('mesa-libgl-devel') }}  # [linux]
+    - {{ cdt('mesa-dri-drivers') }}  # [linux]
+    - {{ cdt('libxxf86vm') }}  # [linux]
+    - {{ cdt('libx11-devel') }}  # [linux]
+    - {{ cdt('xorg-x11-proto-devel') }}  # [linux]
+  host:
+    - h5py
+    - nexus
+    - hdf5 {{ hdf5 }}
+    - numpy {{ numpy }}
+    - occt {{ occt }}
+    - vtk=*=*osmesa*
+    - python {{ python }}
+    - zlib
+    - openssl {{ openssl }}
+    - versioningit
+  run:
+    - h5py
+    - {{ pin_compatible("hdf5", max_pin="x.x") }}
+    - {{ pin_compatible("numpy", upper_bound="1.24") }}
+    - {{ pin_compatible("occt", max_pin="x.x.x") }}
+    - python
+    - openssl {{ openssl }}
+
+outputs:
+  - name: versiontest
+    files:
+      - helloworld.py
