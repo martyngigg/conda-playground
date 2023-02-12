@@ -1,0 +1,14 @@
+name: conda-playground-developer
+
+channels:
+  - conda-forge
+
+dependencies:
+  - clang_osx-64=14
+  - clangxx_osx-64=14
+  - llvm-openmp=14
+  - cmake
+  - ninja
+  - python=3.8
+  - boost
+  - versioningit>=2.1
