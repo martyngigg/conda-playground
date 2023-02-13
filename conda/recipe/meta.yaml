@@ -1,0 +1,37 @@
+package:
+  name: playground
+  version: '0.0.0'
+
+source:
+  path: ../../
+
+build:
+  number: 0
+
+requirements:
+  build:
+    - {{ compiler("c") }}
+    - {{ compiler("cxx") }}
+    - ninja                                  # [unix]
+    - cmake
+    - python {{ python }}                    # [build_platform != target_platform]
+    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
+    - numpy {{ numpy }}                      # [build_platform != target_platform]
+
+  host:
+    - python {{ python }}
+    - setuptools {{ setuptools }}
+    - boost {{ boost }}
+
+  run:
+    - python
+    - {{ pin_compatible("boost", max_pin="x.x") }}
+
+about:
+  home: https://github.com/martyngigg/playground
+  summary: Playground for conda packaging
+  description: Trying out stuff with Conda
+
+extra:
+  maintainers:
+    - martyngigg

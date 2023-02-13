@@ -1,0 +1,39 @@
+target_platform:
+  - osx-64
+
+c_compiler:
+  - gcc                      # [linux]
+  - clang                    # [osx]
+  - vs2019                   # [win]
+c_compiler_version:            # [unix]
+  - 14                         # [osx]
+  - 10                         # [linux]
+cxx_compiler:
+  - gxx                      # [linux]
+  - clangxx                  # [osx]
+  - vs2019                   # [win]
+cxx_compiler_version:          # [unix]
+  - 14                         # [osx]
+  - 10                         # [linux]
+llvm_openmp:                   # [osx]
+  - 14                         # [osx]
+
+python:
+  - 3.8
+
+setuptools:
+  - 49.6
+
+boost:
+  - 1.77
+
+pin_run_as_build:
+  boost:
+    max_pin: x.x
+
+# Otherwise it will find the wrong sdk, currently working on 10.10 as that is what Anaconda/conda-build does.
+CONDA_BUILD_SYSROOT:
+  - /opt/MacOSX10.10.sdk     # [osx and x86_64]
+
+MACOSX_DEPLOYMENT_TARGET:
+  - 10.10                    # [osx and x86_64]

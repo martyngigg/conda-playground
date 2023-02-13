@@ -12,3 +12,5 @@ dependencies:
   - python=3.8
   - boost
   - versioningit>=2.1
+  - boa
+  - conda-verify
