@@ -18,6 +18,9 @@ llvm_openmp:                   # [osx]
 python:
   - 3.8
 
+numpy:
+  - 1.21
+
 setuptools:
   - 49.6
 
