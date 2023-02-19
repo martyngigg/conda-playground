@@ -12,7 +12,7 @@ requirements:
   build:
     - {{ compiler("c") }}
     - {{ compiler("cxx") }}
-    - ninja                                  # [unix]
+    - ninja
     - cmake
     - python {{ python }}                    # [build_platform != target_platform]
     - setuptools {{ setuptools }}            # [build_platform != target_platform]
