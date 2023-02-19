@@ -26,8 +26,7 @@ endif()
 install(CODE "execute_process(COMMAND python -m pip install
                   ${CMAKE_CURRENT_SOURCE_DIR}
                   --disable-pip-version-check
-                  --upgrade --no-deps --ignore-installed --no-cache-dir -vvv
-                  --target ${CMAKE_INSTALL_PREFIX}/${Python_SITELIB_RELPATH})"
+                  --upgrade --no-deps --ignore-installed --no-cache-dir -vvv)"
         COMPONENT Runtime
 )
 
